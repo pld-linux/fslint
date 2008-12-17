@@ -1,0 +1,17 @@
+--- ./fslint-gui~	2008-12-17 20:40:21.781559667 +0200
++++ ./fslint-gui	2008-12-17 20:31:15.848440165 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python
+ # vim:fileencoding=utf-8
+ # Note both python and vim understand the above encoding declaration
+ 
+@@ -381,7 +381,7 @@
+         types = ("rpm", "dpkg", "pacman")
+         for dist in types:
+             setattr(self, dist, False)
+-        if os.path.exists("/etc/redhat-release"):
++        if os.path.exists("/etc/pld-release"):
+             self.rpm = True
+         elif os.path.exists("/etc/debian_version"):
+             self.dpkg = True
