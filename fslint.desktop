@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Filesystem Lint
+Comment=Clean up your filesystems
+Exec=fslint
+Icon=fslint.png
+Terminal=false
+Type=Application
+Encoding=UTF-8
+Categories=GNOME;Application;Utility;System;
