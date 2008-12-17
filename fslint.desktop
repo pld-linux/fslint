@@ -2,7 +2,7 @@
 Name=Filesystem Lint
 Comment=Clean up your filesystems
 Exec=fslint
-Icon=fslint.png
+Icon=/usr/share/fslint/fslint_icon.png
 Terminal=false
 Type=Application
 Encoding=UTF-8
