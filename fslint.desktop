@@ -6,4 +6,4 @@ Icon=/usr/share/fslint/fslint_icon.png
 Terminal=false
 Type=Application
 Encoding=UTF-8
-Categories=GNOME;Application;Utility;System;
+Categories=GTK;GNOME;Utility;System;
