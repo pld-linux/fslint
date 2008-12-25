@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Filesystem Lint
 Comment=Clean up your filesystems
+Comment[pl]=Sprzątanie systemów plików
 Exec=fslint
 Icon=/usr/share/fslint/fslint_icon.png
 Terminal=false
