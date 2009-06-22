@@ -3,16 +3,16 @@ Name:		fslint
 Version:	2.28
 Release:	1
 License:	GPL
-Group:		Base
-URL:		http://www.pixelbeat.org/fslint/
+Group:		Applications/File
 Source0:	http://www.pixelbeat.org/fslint/%{name}-%{version}.tar.gz
-Patch0:		%{name}.patch
-Source1:	%{name}.desktop
 # Source0-md5:	e6a9946f7db9cbdb15f70a9fe79470fc
+Source1:	%{name}.desktop
+Patch0:		%{name}.patch
+URL:		http://www.pixelbeat.org/fslint/
 BuildRequires:	gettext >= 0.13
 BuildRequires:	python-devel >= 2.0
-BuildRequires:	sed >= 4.0
 BuildRequires:	python-pygtk-devel
+BuildRequires:	sed >= 4.0
 Requires:	coreutils
 Requires:	cpio
 Requires:	gettext >= 0.11.1
@@ -20,8 +20,8 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-fslint is a toolkit to find all redundant disk usage (duplicate files
-for e.g.).
+fslint is a toolkit to find all redundant disk usage (for example
+duplicated files).
 
 This package includes collection of utilities to find lint on a
 filesystem:
@@ -36,17 +36,17 @@ filesystem:
 - findrs -- find Redundant Whitespace in files
 - findtf -- find Temporary Files
 - findul -- find possibly Unused Libraries
-- zipdir -- Reclaim wasted space in ext2 directory entries"
+- zipdir -- Reclaim wasted space in ext2 directory entries
 
 %package gui
-Summary:	fslint gui
+Summary:	fslint GUI
 Group:		X11/Applications
 Requires:	python >= 2.0
 Requires:	python-pygtk-glade
 
 %description gui
-fslint is a toolkit to find all redundant disk usage (duplicate files
-for e.g.).
+fslint is a toolkit to find all redundant disk usage (for example
+duplicated files).
 
 This package includes the GUI.
 
@@ -84,6 +84,7 @@ cp -a man/fslint-gui.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 %{__make} -C po install \
 	DESTDIR=$RPM_BUILD_ROOT
+
 %find_lang %{name}
 
 %clean
