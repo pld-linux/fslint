@@ -68,6 +68,8 @@ This package includes the GUI.
 
 %{__perl} -pi -e 's|^liblocation=.*$|liblocation="%{_datadir}/%{name}" #RPM edit|' fslint-gui
 %{__perl} -pi -e 's|^locale_base=.*$|locale_base=None #RPM edit|' fslint-gui
+%{__perl} -pi -e 's|liblocation\+"/fslint/|liblocation+"/|' fslint-gui
+%{__perl} -pi -e 's|"./find|"find|' fslint-gui
 
 %build
 %{__make} -C po
