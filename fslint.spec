@@ -1,7 +1,7 @@
 Summary:	Utility to find and clean "lint" on a filesystem
 Name:		fslint
 Version:	2.28
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/File
 Source0:	http://www.pixelbeat.org/fslint/%{name}-%{version}.tar.gz
@@ -41,6 +41,7 @@ filesystem:
 %package gui
 Summary:	fslint GUI
 Group:		X11/Applications
+Requires:	fslint
 Requires:	python >= 2.0
 Requires:	python-pygtk-glade
 
@@ -65,6 +66,9 @@ This package includes the GUI.
 	s,"$script_dir",%{_datadir}/fslint,
 ' fslint/{find??,fslint,zipdir}
 
+%{__perl} -pi -e 's|^liblocation=.*$|liblocation="%{_datadir}/%{name}" #RPM edit|' fslint-gui
+%{__perl} -pi -e 's|^locale_base=.*$|locale_base=None #RPM edit|' fslint-gui
+
 %build
 %{__make} -C po
 
@@ -73,14 +77,15 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_pixmapsdir},%{_desktopdir},%{_mandir}/man1,%{_datadir}/fslint}
 install fslint-gui $RPM_BUILD_ROOT%{_bindir}/fslint-gui
 
-cp -a fslint_icon.png $RPM_BUILD_ROOT%{_datadir}/fslint/fslint_icon.png
-cp -a fslint.glade $RPM_BUILD_ROOT%{_datadir}/fslint
-cp -a %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+install fslint.glade $RPM_BUILD_ROOT%{_datadir}/fslint
+install fslint_icon.png $RPM_BUILD_ROOT%{_datadir}/fslint
+ln -s %{_datadir}/fslint/fslint_icon.png $RPM_BUILD_ROOT%{_pixmapsdir}
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
 cp -a fslint/{find??,fslint,zipdir} $RPM_BUILD_ROOT%{_bindir}
 cp -a fslint/{fstool,supprt} $RPM_BUILD_ROOT%{_datadir}/fslint
 
-cp -a man/fslint-gui.1 $RPM_BUILD_ROOT%{_mandir}/man1
+install man/fslint-gui.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 %{__make} -C po install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -135,3 +140,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/fslint.desktop
 %{_datadir}/fslint/fslint.glade
 %{_datadir}/fslint/fslint_icon.png
+%{_pixmapsdir}/fslint_icon.png
