@@ -130,7 +130,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir %{_datadir}/fslint/supprt/rmlint
 %attr(755,root,root) %{_datadir}/fslint/supprt/rmlint/fix_ws.sh
-%attr(755,root,root) %{_datadir}/fslint/supprt/rmlint/fixdup.py
+%attr(755,root,root) %{_datadir}/fslint/supprt/rmlint/fixdup
 %attr(755,root,root) %{_datadir}/fslint/supprt/rmlint/fixdup.sh
 %attr(755,root,root) %{_datadir}/fslint/supprt/rmlint/merge_hardlinks
 %attr(755,root,root) %{_datadir}/fslint/supprt/rmlint/view_ws.sh
