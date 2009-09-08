@@ -1,17 +1,17 @@
 Summary:	Utility to find and clean "lint" on a filesystem
 Name:		fslint
-Version:	2.28
-Release:	2
+Version:	2.40
+Release:	1
 License:	GPL
 Group:		Applications/File
 Source0:	http://www.pixelbeat.org/fslint/%{name}-%{version}.tar.gz
-# Source0-md5:	e6a9946f7db9cbdb15f70a9fe79470fc
+# Source0-md5:	8e3a1d0a5408bc16f1f589e2ee8d0048
 Source1:	%{name}.desktop
 Patch0:		%{name}.patch
 URL:		http://www.pixelbeat.org/fslint/
 BuildRequires:	gettext >= 0.13
-BuildRequires:	python-devel >= 2.0
-BuildRequires:	python-pygtk-devel
+BuildRequires:	python-devel >= 2.3
+BuildRequires:	python-pygtk-devel >= 2.4
 BuildRequires:	sed >= 4.0
 Requires:	coreutils
 Requires:	cpio
