@@ -9,9 +9,10 @@ Source0:	http://www.pixelbeat.org/fslint/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Patch0:		%{name}.patch
 URL:		http://www.pixelbeat.org/fslint/
-BuildRequires:	gettext >= 0.13
+BuildRequires:	gettext-devel >= 0.13
 BuildRequires:	python-devel >= 2.3
 BuildRequires:	python-pygtk-devel >= 2.4
+BuildRequires:	rpm-pythonprov
 BuildRequires:	sed >= 4.0
 Requires:	coreutils
 Requires:	cpio
