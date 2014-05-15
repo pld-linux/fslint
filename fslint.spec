@@ -1,11 +1,12 @@
 Summary:	Utility to find and clean "lint" on a filesystem
+Summary(pl.UTF-8):	Narzędzie do wyszukiwania i czyszczenia "brudów" w systemie plików
 Name:		fslint
-Version:	2.42
+Version:	2.44
 Release:	1
-License:	GPL
+License:	GPL v2+
 Group:		Applications/File
 Source0:	http://www.pixelbeat.org/fslint/%{name}-%{version}.tar.gz
-# Source0-md5:	a22a27dc9c8474ba58d770ebf8529d9c
+# Source0-md5:	195d0763038ffbaf268b53b94d80d7e1
 Source1:	%{name}.desktop
 Patch0:		%{name}.patch
 URL:		http://www.pixelbeat.org/fslint/
@@ -37,18 +38,46 @@ filesystem:
 - findul -- find possibly Unused Libraries
 - zipdir -- Reclaim wasted space in ext2 directory entries
 
+%description -l pl.UTF-8
+fslint to zestaw narzędzi do wyszukiwania niepotrzebnie używanego
+miejsca na dysku (np. plików trzymanych w wielu kopiach).
+
+Ten pakiet zawiera narzędzia wyszukujące "brudy" w systemie plików:
+- findup znajduje DUPlikaty plików
+- findnl (Nale Lint) znajduje problematyczne nazwy plików
+- findu8 znajduje nazwy plików z błędnym kodowaniem UTF-8
+- findbl (Bad Links) znajduje problematyczne dowiązania symboliczne
+- findsn (Same Name) znajduje problemy z pokrywającymi się nazwami
+- finded (Empty Directories) znajduje puste katalogi
+- findid (ID) znajduje pliki identyfikatorami martwych użytkowników
+- findns (Non Stripped) znajduje pliki wykonywalne zawierające
+  informacje dla debuggera
+- findrs (Redundant Whitespace) znajduje nadmiarowe odstępy w plikach
+- findtf (Temporary Files) znajduje pliki tymczasowe
+- findul (Unused Libraries) znajduje potencjalnie nie używane
+  biblioteki
+- zipdir odzyskuje zmarnowane miejsce we wpisach katalogów ext2
+
 %package gui
-Summary:	fslint GUI
+Summary:	GUI for fslint
+Summary(pl.UTF-8):	Graficzny interfejs użytkownika do fslinta
 Group:		X11/Applications
-Requires:	fslint
+Requires:	%{name} = %{version}-%{release}
 Requires:	python >= 2.0
-Requires:	python-pygtk-glade
+Requires:	python-pygtk-glade >= 2:2
+Requires:	python-pygtk-gtk >= 2:2
 
 %description gui
 fslint is a toolkit to find all redundant disk usage (for example
 duplicated files).
 
 This package includes the GUI.
+
+%description gui -l pl.UTF-8
+fslint to zestaw narzędzi do wyszukiwania niepotrzebnie używanego
+miejsca na dysku (np. plików trzymanych w wielu kopiach).
+
+Ten pakiet zawiera graficzny interfejs użytkownika.
 
 %prep
 %setup -q
