@@ -2,7 +2,7 @@ Summary:	Utility to find and clean "lint" on a filesystem
 Summary(pl.UTF-8):	Narzędzie do wyszukiwania i czyszczenia "brudów" w systemie plików
 Name:		fslint
 Version:	2.44
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Applications/File
 Source0:	http://www.pixelbeat.org/fslint/%{name}-%{version}.tar.gz
@@ -16,6 +16,7 @@ BuildRequires:	sed >= 4.0
 Requires:	coreutils
 Requires:	cpio
 Requires:	gettext >= 0.11.1
+Requires:	python-modules
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -105,17 +106,17 @@ Ten pakiet zawiera graficzny interfejs użytkownika.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_pixmapsdir},%{_desktopdir},%{_mandir}/man1,%{_datadir}/fslint}
-install fslint-gui $RPM_BUILD_ROOT%{_bindir}/fslint-gui
+install -p fslint-gui $RPM_BUILD_ROOT%{_bindir}/fslint-gui
 
-install fslint.glade $RPM_BUILD_ROOT%{_datadir}/fslint
-install fslint_icon.png $RPM_BUILD_ROOT%{_datadir}/fslint
+cp -p fslint.glade $RPM_BUILD_ROOT%{_datadir}/fslint
+cp -p fslint_icon.png $RPM_BUILD_ROOT%{_datadir}/fslint
 ln -s %{_datadir}/fslint/fslint_icon.png $RPM_BUILD_ROOT%{_pixmapsdir}
-install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
 cp -a fslint/{find??,fslint,zipdir} $RPM_BUILD_ROOT%{_bindir}
 cp -a fslint/{fstool,supprt} $RPM_BUILD_ROOT%{_datadir}/fslint
 
-install man/fslint-gui.1 $RPM_BUILD_ROOT%{_mandir}/man1
+cp -p man/fslint-gui.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 %{__make} -C po install \
 	DESTDIR=$RPM_BUILD_ROOT
