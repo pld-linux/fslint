@@ -82,7 +82,7 @@ Ten pakiet zawiera graficzny interfejs użytkownika.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %{__sed} -i -e '
 	# remove script_dir variable setting
